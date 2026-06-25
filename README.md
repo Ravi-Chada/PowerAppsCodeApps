@@ -1,49 +1,59 @@
 # PowerAppsCodeApps
-A collection of Power Apps hosted Code Apps for Demo Purpose
 
+A collection of Power Platform Code App demos.
 
-Here's a practical set of Code Apps best practices, grounded against the current Microsoft Learn docs (Code Apps went GA Feb 5, 2026 — so this reflects the GA guidance, not preview). 
+## Available Demos
 
-1. Project setup & tooling
-Use the official Microsoft template (React 19 + Vite + 
-power-apps
- SDK). It wires up the powerApps() Vite plugin and the local dev middleware for you.
-Adopt the new npm-based CLI. Starting with the client library v1.0.4+, there's an npm CLI that's replacing the older pac code commands (which are being deprecated). Teach the path that won't be deprecated.
-TypeScript in strict mode. The whole value of Code Apps over canvas is typed models and tooling — lean into it.
-Gotcha to call out: if you're not using the official template's powerApps() plugin, you must add base: './' to 
-vite.config.ts
-, or Vite emits absolute asset paths that break on the Power Platform CDN.
-2. Architecture — keep the layers clean
-The platform owns auth, hosting, connectors, and governance; your code owns UI, state, logic, and routing. Respect that boundary:
+1. **Customer Feedback Assistant**  
+   Capture customer feedback, classify sentiment, and route follow-up tasks.
+2. **Expense Approval Automation**  
+   Submit expenses, validate policy rules, and trigger manager approvals.
+3. **Field Service Dispatch**  
+   Create service tickets, assign technicians, and track visit completion.
 
-Separate UI from data access. Put connector/Dataverse calls in a service layer, not inside components. Components render; services talk to data.
-Don't reinvent auth. You never handle tokens — the Power Apps host manages Entra ID, OAuth, and consent. Don't add your own auth code or store secrets.
-One system of record. Use Dataverse (or your chosen source) as the source of truth; don't scatter state across local component state.
-3. Connectors & data
-Call connectors through the generated typed services, not hand-rolled fetch calls — you get type safety and the platform handles auth/DLP.
-Be DLP-aware. Code apps obey your org's Data Loss Prevention policies. Pick connectors that pass your tenant's DLP, or the app fails at launch.
-Push heavy logic server-side. For multi-step side effects (email, docs, notifications), let Power Automate own it rather than orchestrating from the client — cleaner, more reliable, easier to govern.
-Page and filter at the source. Query only what you need from Dataverse; don't pull whole tables to filter client-side.
-4. Security & governance
-Plan licensing early: end users need a Power Apps Premium license to run a code app. Confirm before you promise a rollout.
-Environment must be enabled: an admin has to toggle "Power Apps code apps" on the environment. Use environment groups/rules to manage at scale.
-Sharing follows canvas-app limits, and Conditional Access / app quarantine apply. Treat it like a governed enterprise app, not a free-form website.
-Note: Service Principals can't own code apps — plan ownership around real user accounts.
-5. ALM & deployment
-Source control is the point — Code Apps are Git-native in your repo. But ⚠️ they don't use Power Platform's built-in Git integration, so manage versioning through your own repo + pipelines.
-Promote dev → test → prod through environments; build with npm run build then push to the platform.
-Wire up CI/CD like any web app — lint, type-check, build, deploy.
-6. Performance & UX
-Optimize the bundle — it's a real SPA, so code-split, lazy-load routes, and watch bundle size.
-Design for loading/empty/error states explicitly — connector calls are network calls.
-Show progress for long operations (the automation may take a few seconds).
-7. Error handling & observability
-Set up Azure Application Insights (documented for Code Apps) so you have real telemetry in production.
-Handle connector failures gracefully — surface a friendly message, retry where sensible, never leave the user staring at a frozen form.
-8. Know the limitations — design around them
-Worth a slide so participants don't hit walls mid-build:
+## Demo Structure
 
-No Power Platform Git integration (use your own repo)
-No SharePoint forms integration
-No Power BI data integration function (but the app can be embedded in a Power BI report via the Power Apps visual)
-Service Principals can't create/own code apps
+Each demo lives in `/demos/<demo-name>` and includes a focused README with:
+- Scenario overview
+- Power Platform components used
+- Suggested extension ideas
+
+## Code Apps Best Practices
+
+Here's a practical set of Code Apps best practices, grounded against current Microsoft Learn docs (Code Apps went GA Feb 5, 2026 — this reflects GA guidance).
+
+1. **Project setup & tooling**
+   - Use the official Microsoft template (React 19 + Vite + `power-apps` SDK). It wires up the `powerApps()` Vite plugin and local dev middleware.
+   - Adopt the npm-based CLI (`power-apps` client library v1.0.4+), replacing older `pac code` commands.
+   - Use TypeScript strict mode.
+   - If you're not using the official template's `powerApps()` plugin, add `base: './'` to `vite.config.ts` so asset paths work on the Power Platform CDN.
+2. **Architecture — keep the layers clean**
+   - Keep UI and data access separate; use a service layer for connector/Dataverse calls.
+   - Don't handle auth tokens in app code; Power Apps host auth handles Entra ID/OAuth/consent.
+   - Keep a single source of truth in Dataverse (or your chosen source).
+3. **Connectors & data**
+   - Prefer generated typed services over hand-rolled fetch calls.
+   - Design with DLP policy constraints in mind.
+   - Push multi-step side-effect logic to Power Automate flows.
+   - Page and filter at the source; avoid full-table client pulls.
+4. **Security & governance**
+   - Validate Power Apps Premium licensing early.
+   - Ensure the environment has Code Apps enabled.
+   - Treat sharing and access controls as enterprise-governed.
+   - Service principals cannot own Code Apps; use user ownership.
+5. **ALM & deployment**
+   - Code Apps are Git-native in your repo, but don't use built-in Power Platform Git integration.
+   - Promote through environments (dev → test → prod).
+   - Use CI/CD for lint, type-check, build, and deploy.
+6. **Performance & UX**
+   - Optimize bundle size with code-splitting/lazy-loading.
+   - Design explicit loading/empty/error states.
+   - Show progress indicators for longer operations.
+7. **Error handling & observability**
+   - Integrate Azure Application Insights for production telemetry.
+   - Surface connector failures clearly and support sensible retry paths.
+8. **Design around limitations**
+   - No Power Platform Git integration (use your own repo).
+   - No SharePoint forms integration.
+   - No Power BI data integration function (embedding via Power Apps visual is still possible).
+   - Service principals can't create/own code apps.
