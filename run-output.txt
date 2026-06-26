@@ -1,0 +1,2 @@
+npm error could not determine executable to run
+npm error A complete log of this run can be found in: C:\Users\ravichada\AppData\Local\npm-cache\_logs\2026-06-26T00_08_12_559Z-debug-0.log

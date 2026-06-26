@@ -1,0 +1,31 @@
+{
+  "version": "1.0",
+  "appId": "80d2239b-55d9-48ef-bb65-4bae0edc45d6",
+  "appDisplayName": "Customer Feedback Assistant",
+  "region": "prod",
+  "appType": "CodeApp",
+  "environmentId": "3170a715-b8c8-e5cf-8534-e987b3b2d41c",
+  "description": " ",
+  "buildPath": "./dist",
+  "buildEntryPoint": "index.html",
+  "localAppUrl": "http://localhost:3000",
+  "logoPath": "Default",
+  "connectionReferences": {},
+  "databaseReferences": {
+    "default.cds": {
+      "dataSources": {
+        "actionitems": {
+          "entitySetName": "crfaa_actionitems",
+          "logicalName": "crfaa_actionitem",
+          "isHidden": false
+        },
+        "feedbacks": {
+          "entitySetName": "crfaa_feedbacks",
+          "logicalName": "crfaa_feedback",
+          "isHidden": false
+        }
+      },
+      "environmentVariableName": ""
+    }
+  }
+}
