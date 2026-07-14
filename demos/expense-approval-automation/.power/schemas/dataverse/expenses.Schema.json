@@ -1,0 +1,279 @@
+{
+  "name": "expaa_expense",
+  "title": "Expenses",
+  "schema": {
+    "type": "array",
+    "items": {
+      "type": "object",
+      "x-ms-dataverse-entity": true,
+      "x-ms-dataverse-entityset": "expaa_expenses",
+      "x-ms-dataverse-primary-id": "expaa_expenseid",
+      "x-ms-dataverse-primary-name": "expaa_name",
+      "properties": {
+        "createdon": {
+          "type": "string",
+          "title": "Created On",
+          "x-ms-dataverse-attribute": "createdon",
+          "x-ms-dataverse-type": "DateTimeType",
+          "x-ms-schema-name": "CreatedOn",
+          "x-ms-read-only": true
+        },
+        "expaa_amount": {
+          "type": "string",
+          "title": "Amount",
+          "x-ms-dataverse-attribute": "expaa_amount",
+          "x-ms-dataverse-type": "DecimalType",
+          "x-ms-schema-name": "expaa_amount"
+        },
+        "expaa_approvername": {
+          "type": "string",
+          "title": "Approver Name",
+          "x-ms-dataverse-attribute": "expaa_approvername",
+          "x-ms-dataverse-type": "StringType",
+          "x-ms-schema-name": "expaa_approvername",
+          "maxLength": 200
+        },
+        "expaa_category": {
+          "type": "string",
+          "title": "Category",
+          "x-ms-dataverse-attribute": "expaa_category",
+          "x-ms-dataverse-type": "PicklistType",
+          "x-ms-schema-name": "expaa_category",
+          "enum": [
+            "Travel",
+            "Meals",
+            "Lodging",
+            "Supplies",
+            "Software",
+            "Training",
+            "Other"
+          ],
+          "x-ms-enum-values": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "x-ms-isGlobal": false,
+          "x-ms-optionsetdisplayname": "Category",
+          "x-ms-optionSetType": "Picklist"
+        },
+        "expaa_categoryname": {
+          "type": "string",
+          "title": "expaa_categoryname",
+          "x-ms-dataverse-attribute": "expaa_categoryname",
+          "x-ms-dataverse-type": "VirtualType",
+          "x-ms-schema-name": "expaa_categoryName",
+          "x-ms-read-only": true
+        },
+        "expaa_decisionnotes": {
+          "type": "string",
+          "title": "Decision Notes",
+          "x-ms-dataverse-attribute": "expaa_decisionnotes",
+          "x-ms-dataverse-type": "MemoType",
+          "x-ms-schema-name": "expaa_decisionnotes",
+          "maxLength": 2000
+        },
+        "expaa_decisionon": {
+          "type": "string",
+          "title": "Decision On",
+          "x-ms-dataverse-attribute": "expaa_decisionon",
+          "x-ms-dataverse-type": "DateTimeType",
+          "x-ms-schema-name": "expaa_decisionon"
+        },
+        "expaa_description": {
+          "type": "string",
+          "title": "Description",
+          "x-ms-dataverse-attribute": "expaa_description",
+          "x-ms-dataverse-type": "MemoType",
+          "x-ms-schema-name": "expaa_description",
+          "maxLength": 2000
+        },
+        "expaa_employeeemail": {
+          "type": "string",
+          "title": "Employee Email",
+          "x-ms-dataverse-attribute": "expaa_employeeemail",
+          "x-ms-dataverse-type": "StringType",
+          "x-ms-schema-name": "expaa_employeeemail",
+          "maxLength": 200
+        },
+        "expaa_employeename": {
+          "type": "string",
+          "title": "Employee Name",
+          "x-ms-dataverse-attribute": "expaa_employeename",
+          "x-ms-dataverse-type": "StringType",
+          "x-ms-schema-name": "expaa_employeename",
+          "maxLength": 200
+        },
+        "expaa_expensedate": {
+          "type": "string",
+          "title": "Expense Date",
+          "x-ms-dataverse-attribute": "expaa_expensedate",
+          "x-ms-dataverse-type": "DateTimeType",
+          "x-ms-schema-name": "expaa_expensedate"
+        },
+        "expaa_expenseid": {
+          "type": "string",
+          "title": "Expense",
+          "x-ms-dataverse-attribute": "expaa_expenseid",
+          "x-ms-dataverse-type": "UniqueidentifierType",
+          "x-ms-schema-name": "expaa_ExpenseId",
+          "x-ms-dataverse-primary-id": true,
+          "required": true,
+          "x-ms-keyType": "primary"
+        },
+        "expaa_merchant": {
+          "type": "string",
+          "title": "Merchant",
+          "x-ms-dataverse-attribute": "expaa_merchant",
+          "x-ms-dataverse-type": "StringType",
+          "x-ms-schema-name": "expaa_merchant",
+          "maxLength": 200
+        },
+        "expaa_name": {
+          "type": "string",
+          "title": "Purpose",
+          "x-ms-dataverse-attribute": "expaa_name",
+          "x-ms-dataverse-type": "StringType",
+          "x-ms-schema-name": "expaa_name",
+          "x-ms-dataverse-primary-name": true,
+          "maxLength": 200
+        },
+        "expaa_paymentmethod": {
+          "type": "string",
+          "title": "Payment Method",
+          "x-ms-dataverse-attribute": "expaa_paymentmethod",
+          "x-ms-dataverse-type": "PicklistType",
+          "x-ms-schema-name": "expaa_paymentmethod",
+          "enum": [
+            "Personal Card",
+            "Corporate Card",
+            "Cash",
+            "Bank Transfer"
+          ],
+          "x-ms-enum-values": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "x-ms-isGlobal": false,
+          "x-ms-optionsetdisplayname": "Payment Method",
+          "x-ms-optionSetType": "Picklist"
+        },
+        "expaa_paymentmethodname": {
+          "type": "string",
+          "title": "expaa_paymentmethodname",
+          "x-ms-dataverse-attribute": "expaa_paymentmethodname",
+          "x-ms-dataverse-type": "VirtualType",
+          "x-ms-schema-name": "expaa_paymentmethodName",
+          "x-ms-read-only": true
+        },
+        "expaa_policyflag": {
+          "type": "boolean",
+          "title": "Policy Flag",
+          "x-ms-dataverse-attribute": "expaa_policyflag",
+          "x-ms-dataverse-type": "BooleanType",
+          "x-ms-schema-name": "expaa_policyflag"
+        },
+        "expaa_policynotes": {
+          "type": "string",
+          "title": "Policy Notes",
+          "x-ms-dataverse-attribute": "expaa_policynotes",
+          "x-ms-dataverse-type": "MemoType",
+          "x-ms-schema-name": "expaa_policynotes",
+          "maxLength": 2000
+        },
+        "expaa_receipturl": {
+          "type": "string",
+          "title": "Receipt URL",
+          "x-ms-dataverse-attribute": "expaa_receipturl",
+          "x-ms-dataverse-type": "StringType",
+          "x-ms-schema-name": "expaa_receipturl",
+          "maxLength": 400
+        },
+        "expaa_status": {
+          "type": "string",
+          "title": "Status",
+          "x-ms-dataverse-attribute": "expaa_status",
+          "x-ms-dataverse-type": "PicklistType",
+          "x-ms-schema-name": "expaa_status",
+          "enum": [
+            "Submitted",
+            "In Review",
+            "Approved",
+            "Rejected",
+            "Reimbursed"
+          ],
+          "x-ms-enum-values": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "x-ms-isGlobal": false,
+          "x-ms-optionsetdisplayname": "Status",
+          "x-ms-optionSetType": "Picklist"
+        },
+        "expaa_statusname": {
+          "type": "string",
+          "title": "expaa_statusname",
+          "x-ms-dataverse-attribute": "expaa_statusname",
+          "x-ms-dataverse-type": "VirtualType",
+          "x-ms-schema-name": "expaa_statusName",
+          "x-ms-read-only": true
+        },
+        "expaa_submittedon": {
+          "type": "string",
+          "title": "Submitted On",
+          "x-ms-dataverse-attribute": "expaa_submittedon",
+          "x-ms-dataverse-type": "DateTimeType",
+          "x-ms-schema-name": "expaa_submittedon"
+        },
+        "modifiedon": {
+          "type": "string",
+          "title": "Modified On",
+          "x-ms-dataverse-attribute": "modifiedon",
+          "x-ms-dataverse-type": "DateTimeType",
+          "x-ms-schema-name": "ModifiedOn",
+          "x-ms-read-only": true
+        },
+        "ownerid": {
+          "type": "string",
+          "title": "Owner",
+          "x-ms-dataverse-attribute": "ownerid",
+          "x-ms-dataverse-type": "OwnerType",
+          "x-ms-schema-name": "OwnerId",
+          "required": true
+        },
+        "statecode": {
+          "type": "string",
+          "title": "Status",
+          "x-ms-dataverse-attribute": "statecode",
+          "x-ms-dataverse-type": "StateType",
+          "x-ms-schema-name": "statecode",
+          "enum": [
+            "Active",
+            "Inactive"
+          ],
+          "x-ms-enum-values": [
+            0,
+            1
+          ],
+          "required": true
+        },
+        "statuscode": {
+          "type": "string",
+          "title": "Status Reason",
+          "x-ms-dataverse-attribute": "statuscode",
+          "x-ms-dataverse-type": "StatusType",
+          "x-ms-schema-name": "statuscode"
+        }
+      }
+    }
+  }
+}

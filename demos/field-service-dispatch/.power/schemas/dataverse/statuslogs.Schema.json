@@ -1,0 +1,147 @@
+{
+  "name": "fsd_statuslog",
+  "title": "Status Logs",
+  "schema": {
+    "type": "array",
+    "items": {
+      "type": "object",
+      "x-ms-dataverse-entity": true,
+      "x-ms-dataverse-entityset": "fsd_statuslogs",
+      "x-ms-dataverse-primary-id": "fsd_statuslogid",
+      "x-ms-dataverse-primary-name": "fsd_name",
+      "properties": {
+        "createdon": {
+          "type": "string",
+          "title": "Created On",
+          "x-ms-dataverse-attribute": "createdon",
+          "x-ms-dataverse-type": "DateTimeType",
+          "x-ms-schema-name": "CreatedOn",
+          "x-ms-read-only": true
+        },
+        "fsd_loggedon": {
+          "type": "string",
+          "title": "Logged On",
+          "x-ms-dataverse-attribute": "fsd_loggedon",
+          "x-ms-dataverse-type": "DateTimeType",
+          "x-ms-schema-name": "fsd_loggedon"
+        },
+        "fsd_name": {
+          "type": "string",
+          "title": "Summary",
+          "x-ms-dataverse-attribute": "fsd_name",
+          "x-ms-dataverse-type": "StringType",
+          "x-ms-schema-name": "fsd_name",
+          "x-ms-dataverse-primary-name": true,
+          "maxLength": 200
+        },
+        "fsd_notes": {
+          "type": "string",
+          "title": "Notes",
+          "x-ms-dataverse-attribute": "fsd_notes",
+          "x-ms-dataverse-type": "MemoType",
+          "x-ms-schema-name": "fsd_notes",
+          "maxLength": 2000
+        },
+        "fsd_status": {
+          "type": "string",
+          "title": "Status",
+          "x-ms-dataverse-attribute": "fsd_status",
+          "x-ms-dataverse-type": "PicklistType",
+          "x-ms-schema-name": "fsd_status",
+          "enum": [
+            "New",
+            "Assigned",
+            "En Route",
+            "On Site",
+            "Completed",
+            "Cancelled"
+          ],
+          "x-ms-enum-values": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "x-ms-isGlobal": false,
+          "x-ms-optionsetdisplayname": "Status",
+          "x-ms-optionSetType": "Picklist"
+        },
+        "fsd_statusname": {
+          "type": "string",
+          "title": "fsd_statusname",
+          "x-ms-dataverse-attribute": "fsd_statusname",
+          "x-ms-dataverse-type": "VirtualType",
+          "x-ms-schema-name": "fsd_statusName",
+          "x-ms-read-only": true
+        },
+        "fsd_statuslogid": {
+          "type": "string",
+          "title": "Status Log",
+          "x-ms-dataverse-attribute": "fsd_statuslogid",
+          "x-ms-dataverse-type": "UniqueidentifierType",
+          "x-ms-schema-name": "fsd_StatusLogId",
+          "x-ms-dataverse-primary-id": true,
+          "required": true,
+          "x-ms-keyType": "primary"
+        },
+        "fsd_technicianname": {
+          "type": "string",
+          "title": "Technician Name",
+          "x-ms-dataverse-attribute": "fsd_technicianname",
+          "x-ms-dataverse-type": "StringType",
+          "x-ms-schema-name": "fsd_technicianname",
+          "maxLength": 200
+        },
+        "fsd_ticketid": {
+          "type": "string",
+          "title": "Ticket",
+          "x-ms-dataverse-attribute": "fsd_ticketid",
+          "x-ms-dataverse-type": "LookupType",
+          "x-ms-schema-name": "fsd_TicketId",
+          "x-ms-dataverse-lookup-entityset": "fsd_tickets"
+        },
+        "modifiedon": {
+          "type": "string",
+          "title": "Modified On",
+          "x-ms-dataverse-attribute": "modifiedon",
+          "x-ms-dataverse-type": "DateTimeType",
+          "x-ms-schema-name": "ModifiedOn",
+          "x-ms-read-only": true
+        },
+        "ownerid": {
+          "type": "string",
+          "title": "Owner",
+          "x-ms-dataverse-attribute": "ownerid",
+          "x-ms-dataverse-type": "OwnerType",
+          "x-ms-schema-name": "OwnerId",
+          "required": true
+        },
+        "statecode": {
+          "type": "string",
+          "title": "Status",
+          "x-ms-dataverse-attribute": "statecode",
+          "x-ms-dataverse-type": "StateType",
+          "x-ms-schema-name": "statecode",
+          "enum": [
+            "Active",
+            "Inactive"
+          ],
+          "x-ms-enum-values": [
+            0,
+            1
+          ],
+          "required": true
+        },
+        "statuscode": {
+          "type": "string",
+          "title": "Status Reason",
+          "x-ms-dataverse-attribute": "statuscode",
+          "x-ms-dataverse-type": "StatusType",
+          "x-ms-schema-name": "statuscode"
+        }
+      }
+    }
+  }
+}

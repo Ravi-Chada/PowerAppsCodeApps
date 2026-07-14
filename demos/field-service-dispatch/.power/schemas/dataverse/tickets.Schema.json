@@ -1,0 +1,300 @@
+{
+  "name": "fsd_ticket",
+  "title": "Tickets",
+  "schema": {
+    "type": "array",
+    "items": {
+      "type": "object",
+      "x-ms-dataverse-entity": true,
+      "x-ms-dataverse-entityset": "fsd_tickets",
+      "x-ms-dataverse-primary-id": "fsd_ticketid",
+      "x-ms-dataverse-primary-name": "fsd_name",
+      "properties": {
+        "createdon": {
+          "type": "string",
+          "title": "Created On",
+          "x-ms-dataverse-attribute": "createdon",
+          "x-ms-dataverse-type": "DateTimeType",
+          "x-ms-schema-name": "CreatedOn",
+          "x-ms-read-only": true
+        },
+        "fsd_address": {
+          "type": "string",
+          "title": "Service Address",
+          "x-ms-dataverse-attribute": "fsd_address",
+          "x-ms-dataverse-type": "StringType",
+          "x-ms-schema-name": "fsd_address",
+          "maxLength": 300
+        },
+        "fsd_assignedon": {
+          "type": "string",
+          "title": "Assigned On",
+          "x-ms-dataverse-attribute": "fsd_assignedon",
+          "x-ms-dataverse-type": "DateTimeType",
+          "x-ms-schema-name": "fsd_assignedon"
+        },
+        "fsd_category": {
+          "type": "string",
+          "title": "Category",
+          "x-ms-dataverse-attribute": "fsd_category",
+          "x-ms-dataverse-type": "PicklistType",
+          "x-ms-schema-name": "fsd_category",
+          "enum": [
+            "HVAC",
+            "Electrical",
+            "Plumbing",
+            "Appliance",
+            "Network",
+            "General"
+          ],
+          "x-ms-enum-values": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "x-ms-isGlobal": false,
+          "x-ms-optionsetdisplayname": "Category",
+          "x-ms-optionSetType": "Picklist"
+        },
+        "fsd_categoryname": {
+          "type": "string",
+          "title": "fsd_categoryname",
+          "x-ms-dataverse-attribute": "fsd_categoryname",
+          "x-ms-dataverse-type": "VirtualType",
+          "x-ms-schema-name": "fsd_categoryName",
+          "x-ms-read-only": true
+        },
+        "fsd_city": {
+          "type": "string",
+          "title": "City",
+          "x-ms-dataverse-attribute": "fsd_city",
+          "x-ms-dataverse-type": "StringType",
+          "x-ms-schema-name": "fsd_city",
+          "maxLength": 100
+        },
+        "fsd_completedon": {
+          "type": "string",
+          "title": "Completed On",
+          "x-ms-dataverse-attribute": "fsd_completedon",
+          "x-ms-dataverse-type": "DateTimeType",
+          "x-ms-schema-name": "fsd_completedon"
+        },
+        "fsd_customername": {
+          "type": "string",
+          "title": "Customer Name",
+          "x-ms-dataverse-attribute": "fsd_customername",
+          "x-ms-dataverse-type": "StringType",
+          "x-ms-schema-name": "fsd_customername",
+          "maxLength": 200
+        },
+        "fsd_customerphone": {
+          "type": "string",
+          "title": "Customer Phone",
+          "x-ms-dataverse-attribute": "fsd_customerphone",
+          "x-ms-dataverse-type": "StringType",
+          "x-ms-schema-name": "fsd_customerphone",
+          "maxLength": 50
+        },
+        "fsd_description": {
+          "type": "string",
+          "title": "Description",
+          "x-ms-dataverse-attribute": "fsd_description",
+          "x-ms-dataverse-type": "MemoType",
+          "x-ms-schema-name": "fsd_description",
+          "maxLength": 2000
+        },
+        "fsd_latitude": {
+          "type": "string",
+          "title": "Latitude",
+          "x-ms-dataverse-attribute": "fsd_latitude",
+          "x-ms-dataverse-type": "DecimalType",
+          "x-ms-schema-name": "fsd_latitude"
+        },
+        "fsd_longitude": {
+          "type": "string",
+          "title": "Longitude",
+          "x-ms-dataverse-attribute": "fsd_longitude",
+          "x-ms-dataverse-type": "DecimalType",
+          "x-ms-schema-name": "fsd_longitude"
+        },
+        "fsd_name": {
+          "type": "string",
+          "title": "Title",
+          "x-ms-dataverse-attribute": "fsd_name",
+          "x-ms-dataverse-type": "StringType",
+          "x-ms-schema-name": "fsd_name",
+          "x-ms-dataverse-primary-name": true,
+          "maxLength": 200
+        },
+        "fsd_priorityscore": {
+          "type": "integer",
+          "title": "Priority Score",
+          "x-ms-dataverse-attribute": "fsd_priorityscore",
+          "x-ms-dataverse-type": "IntegerType",
+          "x-ms-schema-name": "fsd_priorityscore"
+        },
+        "fsd_reportedon": {
+          "type": "string",
+          "title": "Reported On",
+          "x-ms-dataverse-attribute": "fsd_reportedon",
+          "x-ms-dataverse-type": "DateTimeType",
+          "x-ms-schema-name": "fsd_reportedon"
+        },
+        "fsd_resolutionnotes": {
+          "type": "string",
+          "title": "Resolution Notes",
+          "x-ms-dataverse-attribute": "fsd_resolutionnotes",
+          "x-ms-dataverse-type": "MemoType",
+          "x-ms-schema-name": "fsd_resolutionnotes",
+          "maxLength": 2000
+        },
+        "fsd_scheduledfor": {
+          "type": "string",
+          "title": "Scheduled For",
+          "x-ms-dataverse-attribute": "fsd_scheduledfor",
+          "x-ms-dataverse-type": "DateTimeType",
+          "x-ms-schema-name": "fsd_scheduledfor"
+        },
+        "fsd_slahours": {
+          "type": "integer",
+          "title": "SLA Hours",
+          "x-ms-dataverse-attribute": "fsd_slahours",
+          "x-ms-dataverse-type": "IntegerType",
+          "x-ms-schema-name": "fsd_slahours"
+        },
+        "fsd_status": {
+          "type": "string",
+          "title": "Status",
+          "x-ms-dataverse-attribute": "fsd_status",
+          "x-ms-dataverse-type": "PicklistType",
+          "x-ms-schema-name": "fsd_status",
+          "enum": [
+            "New",
+            "Assigned",
+            "En Route",
+            "On Site",
+            "Completed",
+            "Cancelled"
+          ],
+          "x-ms-enum-values": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "x-ms-isGlobal": false,
+          "x-ms-optionsetdisplayname": "Status",
+          "x-ms-optionSetType": "Picklist"
+        },
+        "fsd_statusname": {
+          "type": "string",
+          "title": "fsd_statusname",
+          "x-ms-dataverse-attribute": "fsd_statusname",
+          "x-ms-dataverse-type": "VirtualType",
+          "x-ms-schema-name": "fsd_statusName",
+          "x-ms-read-only": true
+        },
+        "fsd_technicianemail": {
+          "type": "string",
+          "title": "Technician Email",
+          "x-ms-dataverse-attribute": "fsd_technicianemail",
+          "x-ms-dataverse-type": "StringType",
+          "x-ms-schema-name": "fsd_technicianemail",
+          "maxLength": 200
+        },
+        "fsd_technicianname": {
+          "type": "string",
+          "title": "Technician Name",
+          "x-ms-dataverse-attribute": "fsd_technicianname",
+          "x-ms-dataverse-type": "StringType",
+          "x-ms-schema-name": "fsd_technicianname",
+          "maxLength": 200
+        },
+        "fsd_ticketid": {
+          "type": "string",
+          "title": "Ticket",
+          "x-ms-dataverse-attribute": "fsd_ticketid",
+          "x-ms-dataverse-type": "UniqueidentifierType",
+          "x-ms-schema-name": "fsd_TicketId",
+          "x-ms-dataverse-primary-id": true,
+          "required": true,
+          "x-ms-keyType": "primary"
+        },
+        "fsd_urgency": {
+          "type": "string",
+          "title": "Urgency",
+          "x-ms-dataverse-attribute": "fsd_urgency",
+          "x-ms-dataverse-type": "PicklistType",
+          "x-ms-schema-name": "fsd_urgency",
+          "enum": [
+            "Low",
+            "Medium",
+            "High",
+            "Critical"
+          ],
+          "x-ms-enum-values": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "x-ms-isGlobal": false,
+          "x-ms-optionsetdisplayname": "Urgency",
+          "x-ms-optionSetType": "Picklist"
+        },
+        "fsd_urgencyname": {
+          "type": "string",
+          "title": "fsd_urgencyname",
+          "x-ms-dataverse-attribute": "fsd_urgencyname",
+          "x-ms-dataverse-type": "VirtualType",
+          "x-ms-schema-name": "fsd_urgencyName",
+          "x-ms-read-only": true
+        },
+        "modifiedon": {
+          "type": "string",
+          "title": "Modified On",
+          "x-ms-dataverse-attribute": "modifiedon",
+          "x-ms-dataverse-type": "DateTimeType",
+          "x-ms-schema-name": "ModifiedOn",
+          "x-ms-read-only": true
+        },
+        "ownerid": {
+          "type": "string",
+          "title": "Owner",
+          "x-ms-dataverse-attribute": "ownerid",
+          "x-ms-dataverse-type": "OwnerType",
+          "x-ms-schema-name": "OwnerId",
+          "required": true
+        },
+        "statecode": {
+          "type": "string",
+          "title": "Status",
+          "x-ms-dataverse-attribute": "statecode",
+          "x-ms-dataverse-type": "StateType",
+          "x-ms-schema-name": "statecode",
+          "enum": [
+            "Active",
+            "Inactive"
+          ],
+          "x-ms-enum-values": [
+            0,
+            1
+          ],
+          "required": true
+        },
+        "statuscode": {
+          "type": "string",
+          "title": "Status Reason",
+          "x-ms-dataverse-attribute": "statuscode",
+          "x-ms-dataverse-type": "StatusType",
+          "x-ms-schema-name": "statuscode"
+        }
+      }
+    }
+  }
+}

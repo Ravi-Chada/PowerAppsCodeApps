@@ -1,0 +1,49 @@
+{
+  "version": "1.0",
+  "appId": "573dfdb0-4ffe-4e99-b709-ee019c653dfd",
+  "appDisplayName": "field-service-dispatch",
+  "region": "prod",
+  "appType": "CodeApp",
+  "environmentId": "3170a715-b8c8-e5cf-8534-e987b3b2d41c",
+  "description": " ",
+  "buildPath": "./dist",
+  "buildEntryPoint": "index.html",
+  "localAppUrl": "http://localhost:3000",
+  "logoPath": "Default",
+  "connectionReferences": {
+    "c4930051-47ba-4014-81b0-537f3b9ed016": {
+      "id": "/providers/Microsoft.PowerApps/apis/shared_office365",
+      "displayName": "Office 365 Outlook",
+      "dataSources": [
+        "office365"
+      ],
+      "dataSets": {}
+    },
+    "2a5b1707-8bc1-4870-a8b3-e1fc183cea0a": {
+      "id": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+      "displayName": "Microsoft Dataverse",
+      "dataSources": [
+        "commondataserviceforapps"
+      ],
+      "authenticationType": "Oauth",
+      "dataSets": {}
+    }
+  },
+  "databaseReferences": {
+    "default.cds": {
+      "dataSources": {
+        "tickets": {
+          "entitySetName": "fsd_tickets",
+          "logicalName": "fsd_ticket",
+          "isHidden": false
+        },
+        "statuslogs": {
+          "entitySetName": "fsd_statuslogs",
+          "logicalName": "fsd_statuslog",
+          "isHidden": false
+        }
+      },
+      "environmentVariableName": ""
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "version": "1.0",
+  "appId": "8d2861be-b2e6-40bf-8ae0-079e22687a78",
+  "appDisplayName": "expense-approval-automation",
+  "region": "prod",
+  "appType": "CodeApp",
+  "environmentId": "3170a715-b8c8-e5cf-8534-e987b3b2d41c",
+  "description": " ",
+  "buildPath": "./dist",
+  "buildEntryPoint": "index.html",
+  "localAppUrl": "http://localhost:3000",
+  "logoPath": "Default",
+  "connectionReferences": {},
+  "databaseReferences": {
+    "default.cds": {
+      "dataSources": {
+        "expenses": {
+          "entitySetName": "expaa_expenses",
+          "logicalName": "expaa_expense",
+          "isHidden": false
+        },
+        "approvals": {
+          "entitySetName": "expaa_approvals",
+          "logicalName": "expaa_approval",
+          "isHidden": false
+        }
+      },
+      "environmentVariableName": ""
+    }
+  }
+}
